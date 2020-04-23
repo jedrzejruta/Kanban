@@ -3,14 +3,18 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title> Kanban </title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<script src="/scripts/main.js"></script>
 	</head>
 	<body>
 		<main>
 			<section>
 				<h1> Aplikacja Kanban - twórz wygodne zadania </h1>
-				<input type="text" id="boardId">
-				<button id="newBoard">Add new board</button>
+				<form action="javascript:;">
+					<input type="text" id="boardId" required placeholder="Name for your board" pattern="\S+.*"/>
+					<button id="newBoard">Add new board</button>
+				</form>
 			</section>
 		</main>
 	</body>

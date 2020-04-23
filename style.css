@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+body {
+	font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+	background-color: floralwhite;
+}
+input {
+	outline: none;
+	border: 2px solid black;
+}
+input:not(:placeholder-shown){
+	border-color: red;
+}
+input:valid {
+	border-color: green;
+}

@@ -14,6 +14,7 @@ class Board  {
 
 		this.mainPage.appendChild(newBoardSection);
 	}
+
 }
 
 class Task {
@@ -29,8 +30,15 @@ class Kanban {
 
 		this.createBoard.addEventListener('click',() => {
 			const _boardID: string = (<HTMLInputElement>document.querySelector('#boardId')).value;
-			new Board(_boardID);
-			console.log(_boardID);
+			//TODO:
+			//make function to validate input 
+			if(_boardID.trim().length === 0){
+				return false;
+			}
+			else {
+				new Board(_boardID.trim());
+				console.log(_boardID);
+			}
 		});
 	}
 

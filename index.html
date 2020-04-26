@@ -9,13 +9,16 @@
 	</head>
 	<body>
 		<main>
-			<section>
+			<section id="boardMenu">
 				<h1> Aplikacja Kanban - twórz wygodne zadania </h1>
 				<form action="javascript:;">
 					<input type="text" id="boardId" required placeholder="Name for your board" pattern=".*\S.*"/>
 					<button id="newBoard">Add new board</button>
 				</form>
 			</section>
+			<aside>
+				<ul id="boardList"></ul>
+			</aside>
 		</main>
 	</body>
 </html>

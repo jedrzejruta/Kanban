@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+/* * {
+	padding: 0;
+	margin: 0;
+} */
 body {
 	font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
 	background-color: floralwhite;
@@ -13,4 +17,14 @@ input:not(:placeholder-shown){
 }
 input:valid {
 	border-color: green;
+}
+#boardMenu {
+	background-color: limegreen;
+}
+.board {
+	background-color: cadetblue;
+}
+
+aside ul {
+	background-color: maroon;
 }

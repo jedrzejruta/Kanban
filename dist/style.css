@@ -24,7 +24,24 @@ input:valid {
 .board {
 	background-color: cadetblue;
 }
-
 aside ul {
+	list-style: none;
 	background-color: red;
+	display: flex;
+}
+aside ul li {
+	height: 100%;
+	padding: 0 1% 0 1%;
+}
+aside ul li:hover {
+	cursor: pointer;
+	background-color: white;
+}
+.active {
+	/*TODO: add display etc */
+	
+}
+
+.hidden {
+	display: none;
 }

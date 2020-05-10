@@ -28,3 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 	- HTML input validation - can't add empty string as board id
+
+## [1.2.1] - 2020-05-10
+
+### Added 
+	
+	- Append tasks to board
+	- Store task objects in array

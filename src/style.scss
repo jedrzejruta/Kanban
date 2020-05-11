@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+$redColor: red;
+
+body {
+	font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+	background-color: floralwhite;
+	input {
+		outline: none;
+		border: 2px solid black;
+		&:not(:placeholder-shown){
+			border-color: $redColor;
+		}
+		&:valid {
+			border-color: green;
+		}
+	}
+	aside ul {
+		list-style: none;
+		background-color: $redColor;
+		display: flex;
+		li {
+			height: 100%;
+			padding: 0 1% 0 1%;
+			&:hover {
+				cursor: pointer;
+				background-color: white;
+			}
+		}
+	}
+	#boardMenu {
+		background-color: limegreen;
+	}
+	.board {
+		background-color: cadetblue;
+	}
+	.hidden {
+		display: none;
+	}
+}

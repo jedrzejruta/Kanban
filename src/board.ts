@@ -2,8 +2,10 @@ import { Task } from './task';
 
 export class Board  {
 	private tasks: Array<Task> = [];
+	public boardID: string;
 
 	constructor(public boardName: string) {
+		this.boardID = Date.now().toString();
 		this.addNewBoard(boardName);
 		this.addNewTask();
 	}
@@ -27,7 +29,7 @@ export class Board  {
 		newBoardTitle.innerText = _boardName;
 
 		newBoardSection.classList.add('board','active');
-		newBoardSection.id = Date.now().toString();
+		newBoardSection.id = this.boardID;
 		newBoardSection.appendChild(newBoardTitle);
 		newBoardSection.appendChild(taskNameInput);
 		newBoardSection.appendChild(addTaskBtn);

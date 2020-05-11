@@ -33,8 +33,12 @@ body {
 	}
 	.board {
 		background-color: cadetblue;
+		min-height: 50vh;
 	}
 	.hidden {
 		display: none;
+	}
+	.active {
+		display: block;
 	}
 }

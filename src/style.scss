@@ -35,6 +35,16 @@ body {
 		background-color: cadetblue;
 		min-height: 50vh;
 	}
+	.note {
+		background-color: yellow;
+		width: 150px;
+		height: 150px;
+		.noteBar {
+			background-color: red;
+
+		}
+		
+	}
 	.hidden {
 		display: none;
 	}

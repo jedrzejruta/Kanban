@@ -2,12 +2,13 @@ import { Board } from './board';
 
 export class Kanban {
 	private boards: Array<Board> = [];
+	//update boards when task added?
 
 	constructor() {
 		this.addNewBoard();
 	}
 
-	private addNewBoard() {
+	private addNewBoard(): void {
 		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard');
 		newBoardButton.addEventListener('click', () => {
 			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim(); //also document.querySelector<HTMLInputElement>('#boardId')!.value; 
@@ -34,25 +35,25 @@ export class Kanban {
 		});
 	}
 	//add method modificators 
-	displayBoards(board: Board) {
+	private displayBoards(board: Board): void {
 		const boardList: HTMLUListElement = <HTMLUListElement>document.querySelector('#boardList');
 		const boardListEl: HTMLLIElement = document.createElement('li');
 		// const tempBoard: Array<Board> = this.boards.filter(el => el.boardName === board.boardName);
 		// boardListEl.textContent = tempBoard[0].boardName;
+
 		boardListEl.textContent = board.boardName;
 		boardListEl.classList.add(board.boardID);
 		boardList.appendChild(boardListEl);
 		this.showActiveBoard();
 	}
 
-	showActiveBoard() {
+	private showActiveBoard(): void {
 		const boardListElements: HTMLLIElement[] = Array.from(document.querySelectorAll('#boardList>li'));
 		const boardArray: HTMLElement[] = Array.from(document.querySelectorAll('.board'));
 		
 		boardListElements.forEach(el => {
 			el.addEventListener('click', () => {
 				const activeBoardID: string = el.className;
-
 				boardArray.forEach(element => {
 					if(element.id === activeBoardID)
 					{
@@ -63,7 +64,6 @@ export class Kanban {
 						element.classList.add('hidden');
 						element.classList.remove('active');
 					}
-					
 				});
 				// activeBoard.classList.add('active');
 				// activeBoard.classList.remove('hidden');

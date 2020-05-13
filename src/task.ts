@@ -1,11 +1,20 @@
 export class Task {
-	constructor(private taskName: string) {
+	constructor(taskName: string, taskDesc: string) {
 		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'); //append task to active board 
-		//not working with many boards, only appends to first board
+
 		console.log('dziala');
-		const newTaskEl: HTMLParagraphElement = document.createElement('p');
-		newTaskEl.innerText = taskName;
+		const newTaskEl: HTMLDivElement = document.createElement('div'),
+			newTaskName: HTMLHeadingElement = document.createElement('h1'),
+			newTaskDesc: HTMLParagraphElement = document.createElement('p');
+
+		newTaskName.innerText = taskName;
+		newTaskDesc.innerText = taskDesc;
 		newTaskEl.draggable = true;
+		newTaskEl.classList.add('note');
+		newTaskName.classList.add('noteBar');
+
+		newTaskEl.appendChild(newTaskName);
+		newTaskEl.appendChild(newTaskDesc);
 		activeBoard.appendChild(newTaskEl);
 	}
 }

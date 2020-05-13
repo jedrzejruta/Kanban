@@ -7,21 +7,27 @@ export class Board  {
 	constructor(public boardName: string) {
 		this.boardID = Date.now().toString();
 		this.addNewBoard(boardName);
-		this.addNewTask();
+		
+		// this.addNewTask();
 	}
 
-	private addNewBoard(_boardName: string){
-		const mainPage: HTMLElement = <HTMLElement>document.querySelector('main');
-		const addTaskBtn: HTMLButtonElement = document.createElement('button');
-		const newBoardSection: HTMLElement = document.createElement('section');
-		const newBoardTitle: HTMLHeadingElement = document.createElement('h1');
-		const taskNameInput: HTMLInputElement = document.createElement('input');
+	private addNewBoard(_boardName: string): void{
 
+		const mainPage: HTMLElement = <HTMLElement>document.querySelector('main'),
+			addTaskBtn: HTMLButtonElement = document.createElement('button'),
+			newBoardSection: HTMLElement = document.createElement('section'),
+			newBoardTitle: HTMLHeadingElement = document.createElement('h1'),
+			taskNameInput: HTMLInputElement = document.createElement('input'),
+			taskDescInput: HTMLTextAreaElement = document.createElement('textarea');
+		
 		taskNameInput.setAttribute('type', 'text');
 		taskNameInput.setAttribute('placeholder','Task list name');
 		taskNameInput.setAttribute('pattern','.*\\S.*');
 		taskNameInput.required = true;
 		taskNameInput.classList.add('taskListName');
+
+		taskDescInput.setAttribute('placeholder','Write your note here');
+		taskDescInput.classList.add('taskListDesc');
 
 		addTaskBtn.innerText = 'Add task list';
 		addTaskBtn.id = 'taskBtn';
@@ -32,21 +38,25 @@ export class Board  {
 		newBoardSection.id = this.boardID;
 		newBoardSection.appendChild(newBoardTitle);
 		newBoardSection.appendChild(taskNameInput);
+		newBoardSection.appendChild(taskDescInput);
 		newBoardSection.appendChild(addTaskBtn);
 		
 		mainPage.appendChild(newBoardSection);
+		addTaskBtn.addEventListener('click', () => this.addNewTask(this.tasks));
 	}
 
-	addNewTask(){
-		const addtask: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#taskBtn');
+	private addNewTask(tasks: Array<Task>): void{
+		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'),
+			taskName: string = (<HTMLInputElement>activeBoard.querySelector('.taskListName')).value.trim(),
+			taskDesc: string = (<HTMLTextAreaElement>activeBoard.querySelector('.taskListDesc')).value;
 
-		addtask.addEventListener('click', () => {
-			const taskName: string = (<HTMLInputElement>document.querySelector('.taskListName')).value.trim();
-			if(taskName.length !== 0) {
-				const task: Task = new Task(taskName);
-				this.tasks.push(task);
-			}
-			else return;
-		});
+		if(taskName.length !== 0) {
+			const task: Task = new Task(taskName,taskDesc);
+			tasks.push(task);
+		}
+		else return;
+		// addtask.addEventListener('click', () => {
+		// });
 	}
+	
 }

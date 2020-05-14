@@ -1,54 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 $redColor: red;
-
+*{
+	margin: 0;
+	padding: 0;
+	
+}
 body {
 	font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
 	background-color: floralwhite;
-	input {
-		outline: none;
-		border: 2px solid black;
-		&:not(:placeholder-shown){
-			border-color: $redColor;
+}
+header {
+	#boardMenu {
+		align-items: center;
+		min-height: 10vh;
+		padding: 1%;
+		display: flex;
+		background-color: limegreen;
+		h1 {
+			flex: 3;
 		}
-		&:valid {
-			border-color: green;
+		form {
+			* {
+				margin-left: 1vh;
+			}
+			flex: 2;
+			display: flex;
+			align-items: center;
+			input, button {
+				padding: 1vh;
+			}
+			input {
+				flex: 2;
+				outline: none;
+				border: 2px solid black;
+				&:not(:placeholder-shown){
+					border-color: $redColor;
+				}
+				&:valid {
+					border-color: blue;
+				}
+			}
+			button {
+				flex: 1;
+			}
 		}
 	}
-	aside ul {
+	ul {
+		min-height: 10vh;
 		list-style: none;
 		background-color: $redColor;
 		display: flex;
 		li {
-			height: 100%;
-			padding: 0 1% 0 1%;
+			border-right: 1px solid black;
+			display: flex;
+			flex: 1;
+			align-items: center;
+			justify-content: center;
 			&:hover {
 				cursor: pointer;
-				background-color: white;
+				background-color: firebrick;
 			}
 		}
 	}
-	#boardMenu {
-		background-color: limegreen;
+}
+.board {
+	display: flex;
+	justify-content: center;
+	background-color: cadetblue;
+	min-height: 70vh;
+	flex-direction: column;
+	input, textarea, button {
+		display: flex;
+		flex: 1;
+		padding: 1vh;
 	}
-	.board {
-		background-color: cadetblue;
-		min-height: 50vh;
-	}
-	.note {
-		background-color: yellow;
-		width: 150px;
-		height: 150px;
-		.noteBar {
-			background-color: red;
-
-		}
-		
-	}
-	.hidden {
-		display: none;
-	}
-	.active {
-		display: block;
-	}
+}
+.note {
+	background-color: yellow;
+	width: 150px;
+	height: 150px;
+	.noteBar {
+		background-color: $redColor;
+	}	
+}
+.hidden {
+	display: none;
+}
+.active {
+	display: block;
 }

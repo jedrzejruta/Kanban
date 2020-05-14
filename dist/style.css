@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+  background-color: floralwhite; }
+
+header #boardMenu {
+  align-items: center;
+  min-height: 10vh;
+  padding: 1%;
+  display: flex;
+  background-color: limegreen; }
+  header #boardMenu h1 {
+    flex: 3; }
+  header #boardMenu form {
+    flex: 2;
+    display: flex;
+    align-items: center; }
+    header #boardMenu form * {
+      margin-left: 1vh; }
+    header #boardMenu form input, header #boardMenu form button {
+      padding: 1vh; }
+    header #boardMenu form input {
+      flex: 2;
+      outline: none;
+      border: 2px solid black; }
+      header #boardMenu form input:not(:placeholder-shown) {
+        border-color: red; }
+      header #boardMenu form input:valid {
+        border-color: blue; }
+    header #boardMenu form button {
+      flex: 1; }
+
+header ul {
+  min-height: 10vh;
+  list-style: none;
+  background-color: red;
+  display: flex; }
+  header ul li {
+    border-right: 1px solid black;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center; }
+    header ul li:hover {
+      cursor: pointer;
+      background-color: firebrick; }
+
+.board {
+  display: flex;
+  justify-content: center;
+  background-color: cadetblue;
+  min-height: 70vh;
+  flex-direction: column; }
+  .board input, .board textarea, .board button {
+    display: flex;
+    flex: 1;
+    padding: 1vh; }
+
+.note {
+  background-color: yellow;
+  width: 150px;
+  height: 150px; }
+  .note .noteBar {
+    background-color: red; }
+
+.hidden {
+  display: none; }
+
+.active {
+  display: block; }

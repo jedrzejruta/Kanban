@@ -4,20 +4,22 @@
 		<meta charset="utf-8"/>
 		<title> Kanban </title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<script src="main.js"></script>
 	</head>
 	<body>
-		<main>
+		<header>
 			<section id="boardMenu">
 				<h1> Aplikacja Kanban - twórz wygodne zadania </h1>
 				<form action="javascript:;">
-					<input type="text" id="boardName" required placeholder="Name for your board" pattern=".*\S.*"/>
+					<label for="boardName">Create new board</label>
+					<input type="text" title="Nazwa tablicy" id="boardName" required placeholder="Name for your board" oninvalid="this.setCustomValidity('Nazwa tablicy nie może być pusta')" oninput="this.setCustomValidity('')" pattern=".*\S.*"/>
 					<button id="newBoard">Add new board</button>
 				</form>
 			</section>
-			<aside>
-				<ul id="boardList"></ul>
-			</aside>
+			<ul id="boardList"></ul>
+		</header>
+		<main>
 		</main>
 	</body>
 </html>

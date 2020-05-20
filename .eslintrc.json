@@ -42,6 +42,18 @@
 		],
 		"camelcase" : "warn",
 		"no-unused-vars" :"warn",
-		"no-var": "warn"
+		"no-var": "warn",
+		"comma-dangle": "warn",
+		"eqeqeq": "error",
+		"arrow-spacing": "warn",
+		"no-empty": "error",
+		"no-magic-numbers": [
+			"error", {
+				"ignore": [0]
+			}
+		],	
+		"no-mixed-spaces-and-tabs": "error",
+		"no-multiple-empty-lines": "error",
+		"spaced-comment": "warn"
     }
 }

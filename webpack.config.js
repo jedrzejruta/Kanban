@@ -2,6 +2,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = {
+	devServer: {
+		 contentBase: 'dist' // path.join(__dirname, 'dist')
+	},
 	mode: 'development',
 	entry: './src/main.ts',
 	resolve: {
@@ -31,7 +34,6 @@ const config = {
 							name: '[name].css'
 						}
 					},
-
 					/*
 					uncomment to change building as inserting to head style
 					*/

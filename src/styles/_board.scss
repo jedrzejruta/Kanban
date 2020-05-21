@@ -1,0 +1,27 @@
+@import '_mixins.scss',
+	'_colors.scss';
+
+.board {
+	@include setFlexAndMinHeight(70);
+	background-color: $boardColor;
+	flex-direction: column;
+	justify-content: center; // ?
+	form {
+		@include setFormFlex;
+		width: 20vw;
+		flex-direction: column;
+		* {
+			@include noOutlineInput;
+			padding: 1vh;
+		}
+		textarea {
+			resize: none;
+		}
+	}
+}
+.hidden {
+	display: none;
+}
+.active {
+	display: block;
+}

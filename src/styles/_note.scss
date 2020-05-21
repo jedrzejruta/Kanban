@@ -1,0 +1,11 @@
+@import '_mixins.scss', 
+	'_colors.scss';
+
+.note {
+	background-color: $yellow;
+	width: 150px;
+	height: 150px; // make this a method to set h and v
+	.noteBar {
+		background-color: $red;
+	}
+}

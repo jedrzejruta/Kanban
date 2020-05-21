@@ -1,0 +1,18 @@
+@import '_mixins.scss',
+	'_colors.scss';
+
+header {
+	ul {
+		@include setFlexAndMinHeight(10);
+		list-style: none;
+		background-color: $red;
+		li {
+			border-right: 1px solid black;
+			display: flex;
+			flex: 1;
+			align-items: center;
+			justify-content: center;
+			@include hovered($hoverRed, pointer);
+		}
+	}
+}

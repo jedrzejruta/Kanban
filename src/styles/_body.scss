@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import '_mixins.scss', 
+	'_colors.scss';
+
+* {
+	@include resetPaddingMargin;
+}
+body {
+	font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+	background-color: $bodyColor;
+}

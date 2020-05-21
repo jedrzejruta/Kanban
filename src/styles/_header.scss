@@ -1,0 +1,33 @@
+@import '_mixins.scss',
+	'_colors.scss';
+
+header {
+	#boardMenu {
+		@include setFlexAndMinHeight(10);
+		align-items: center;
+		padding: 1%;
+		background-color: $lightGreen;
+		h1{
+			flex: 3;
+		}
+		form {
+			@include setFormFlex;
+			flex: 2;
+			label {
+				margin: auto;
+			}
+			input, button {
+				margin-left: 1vh;
+				padding: 1vh;
+			}
+			input {
+				flex: 2;
+				@include setInputStyle(2, black);
+				@include validateInput($red, $blue);
+			}
+			button {
+				flex: 1;
+			}
+		}
+	}
+}

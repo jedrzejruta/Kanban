@@ -1,0 +1,41 @@
+@mixin resetPaddingMargin {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin hovered($hovColor, $cursor) {
+	&:hover{
+		background-color: $hovColor;
+		cursor: $cursor;
+	}
+}
+
+@mixin setFlexAndMinHeight($minHeight) {
+	display: flex;
+	min-height: #{$minHeight}vh;
+}
+
+@mixin setFormFlex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@mixin noOutlineInput {
+	outline: none;
+}
+
+@mixin setInputStyle ($borderWidth: null, $borderColor: null) {
+	@include noOutlineInput;
+	@if $borderWidth != null {
+		border: #{$borderWidth}px solid $borderColor;
+	}
+}
+
+@mixin validateInput($incorrectInputColor, $correctInputColor) {
+	&:not(:placeholder-shown){
+		border-color: $incorrectInputColor;
+	}
+	&:valid {
+		border-color: $correctInputColor;
+	}
+}

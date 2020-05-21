@@ -8,20 +8,21 @@ body {
   background-color: floralwhite; }
 
 header #boardMenu {
-  align-items: center;
-  min-height: 10vh;
-  padding: 1%;
   display: flex;
+  min-height: 10vh;
+  align-items: center;
+  padding: 1%;
   background-color: limegreen; }
   header #boardMenu h1 {
     flex: 3; }
   header #boardMenu form {
-    flex: 2;
     display: flex;
-    align-items: center; }
-    header #boardMenu form * {
-      margin-left: 1vh; }
+    flex-wrap: wrap;
+    flex: 2; }
+    header #boardMenu form label {
+      margin: auto; }
     header #boardMenu form input, header #boardMenu form button {
+      margin-left: 1vh;
       padding: 1vh; }
     header #boardMenu form input {
       flex: 2;
@@ -34,31 +35,43 @@ header #boardMenu {
     header #boardMenu form button {
       flex: 1; }
 
-header ul {
+#boardMenu ul {
+  display: flex;
   min-height: 10vh;
   list-style: none;
-  background-color: red;
-  display: flex; }
-  header ul li {
+  background-color: red; }
+  #boardMenu ul li {
     border-right: 1px solid black;
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center; }
-    header ul li:hover {
-      cursor: pointer;
-      background-color: firebrick; }
+    #boardMenu ul li:hover {
+      background-color: firebrick;
+      cursor: pointer; }
 
 .board {
   display: flex;
-  justify-content: center;
-  background-color: cadetblue;
   min-height: 70vh;
-  flex-direction: column; }
-  .board input, .board textarea, .board button {
+  background-color: cadetblue;
+  flex-direction: column;
+  justify-content: center; }
+  .board form {
     display: flex;
-    flex: 1;
-    padding: 1vh; }
+    flex-wrap: wrap;
+    width: 20vw;
+    flex-direction: column; }
+    .board form * {
+      outline: none;
+      padding: 1vh; }
+    .board form textarea {
+      resize: none; }
+
+.hidden {
+  display: none; }
+
+.active {
+  display: block; }
 
 .note {
   background-color: yellow;
@@ -66,9 +79,3 @@ header ul {
   height: 150px; }
   .note .noteBar {
     background-color: red; }
-
-.hidden {
-  display: none; }
-
-.active {
-  display: block; }

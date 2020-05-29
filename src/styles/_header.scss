@@ -2,8 +2,10 @@
 	'_colors.scss';
 
 header {
+	margin-left: 5vw;
 	#boardMenu {
-		@include setFlexAndMinHeight(10);
+		@include setFlexAndMinHeight(15);
+		box-sizing: border-box;
 		align-items: center;
 		padding: 1%;
 		background-color: $lightGreen;

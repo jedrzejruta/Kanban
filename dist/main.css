@@ -7,55 +7,65 @@ body {
   font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
   background-color: floralwhite; }
 
-header #boardMenu {
-  display: flex;
-  min-height: 10vh;
-  align-items: center;
-  padding: 1%;
-  background-color: limegreen; }
-  header #boardMenu h1 {
-    flex: 3; }
-  header #boardMenu form {
+header {
+  margin-left: 5vw; }
+  header #boardMenu {
     display: flex;
-    flex-wrap: wrap;
-    flex: 2; }
-    header #boardMenu form label {
-      margin: auto; }
-    header #boardMenu form input, header #boardMenu form button {
-      margin-left: 1vh;
-      padding: 1vh; }
-    header #boardMenu form input {
-      flex: 2;
-      outline: none;
-      border: 2px solid black; }
-      header #boardMenu form input:not(:placeholder-shown) {
-        border-color: red; }
-      header #boardMenu form input:valid {
-        border-color: blue; }
-    header #boardMenu form button {
-      flex: 1; }
-
-#boardMenu ul {
-  display: flex;
-  min-height: 10vh;
-  list-style: none;
-  background-color: red; }
-  #boardMenu ul li {
-    border-right: 1px solid black;
-    display: flex;
-    flex: 1;
+    min-height: 15vh;
+    box-sizing: border-box;
     align-items: center;
-    justify-content: center; }
-    #boardMenu ul li:hover {
-      background-color: firebrick;
-      cursor: pointer; }
+    padding: 1%;
+    background-color: limegreen; }
+    header #boardMenu h1 {
+      flex: 3; }
+    header #boardMenu form {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 2; }
+      header #boardMenu form label {
+        margin: auto; }
+      header #boardMenu form input, header #boardMenu form button {
+        margin-left: 1vh;
+        padding: 1vh; }
+      header #boardMenu form input {
+        flex: 2;
+        outline: none;
+        border: 2px solid black; }
+        header #boardMenu form input:not(:placeholder-shown) {
+          border-color: red; }
+        header #boardMenu form input:valid {
+          border-color: blue; }
+      header #boardMenu form button {
+        flex: 1; }
+
+nav {
+  width: 5vw;
+  min-height: 100vh;
+  position: fixed;
+  background-color: red; }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none; }
+    nav ul li {
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: center;
+      word-wrap: break-word;
+      width: 100%; }
+      nav ul li:hover {
+        background-color: firebrick;
+        cursor: pointer; }
 
 .board {
+  margin-left: 5vw;
+  box-sizing: border-box;
   display: flex;
-  min-height: 70vh;
-  background-color: cadetblue;
-  flex-direction: column;
-  justify-content: center; }
+  min-height: 85vh;
+  background-color: cadetblue; }
   .board form {
     display: flex;
     flex-wrap: wrap;
@@ -71,11 +81,19 @@ header #boardMenu {
   display: none; }
 
 .active {
-  display: block; }
+  flex-wrap: wrap; }
+
+.board .taskSection {
+  background-color: white;
+  border: 1px solid black;
+  min-height: 50vh;
+  width: 20vw; }
 
 .note {
+  margin: 1%;
   background-color: yellow;
-  width: 150px;
-  height: 150px; }
+  min-width: 150px;
+  min-height: 150px;
+  align-items: center; }
   .note .noteBar {
     background-color: red; }

@@ -8,16 +8,18 @@
 		<script src="main.js"></script>
 	</head>
 	<body>
+		<nav>
+			<ul id="boardList"></ul>
+		</nav>
 		<header>
 			<section id="boardMenu">
 				<h1> Aplikacja Kanban - twórz wygodne zadania </h1>
 				<form action="javascript:;">
 					<label for="boardName">Create new board</label>
-					<input type="text" title="Nazwa tablicy" id="boardName" required placeholder="Name for your board" oninvalid="this.setCustomValidity('Nazwa tablicy nie może być pusta')" oninput="this.setCustomValidity('')" pattern=".*\S.*"/>
+					<input type="text" title="Nazwa tablicy" id="boardName" required placeholder="Name for your board" pattern=".*\S.*"/>
 					<button id="newBoard">Add new board</button>
 				</form>
 			</section>
-			<ul id="boardList"></ul>
 		</header>
 		<main>
 		</main>

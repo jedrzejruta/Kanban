@@ -1,0 +1,11 @@
+@import '_mixins.scss',
+	'_colors.scss';
+
+.board {
+	.taskSection {
+		background-color: white;
+		border: 1px solid black;
+		min-height: 50vh;
+		width: 20vw;
+	}
+}

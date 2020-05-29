@@ -1,17 +1,24 @@
 @import '_mixins.scss',
 	'_colors.scss';
 
-header {
+nav {
+	width: 5vw;
+	min-height: 100vh;
+	position: fixed;
+	background-color: $red;
 	ul {
-		@include setFlexAndMinHeight(10);
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
 		list-style: none;
-		background-color: $red;
 		li {
-			border-right: 1px solid black;
-			display: flex;
-			flex: 1;
-			align-items: center;
-			justify-content: center;
+			box-sizing: border-box;
+			padding: 5px;
+			text-align: center;
+			word-wrap: break-word; // prevent from adding too long board name
+			width: 100%;
 			@include hovered($hoverRed, pointer);
 		}
 	}

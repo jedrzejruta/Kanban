@@ -47,7 +47,6 @@ export class Task {
 	}
 
 	deleteTask(taskEl: HTMLDivElement): void{
-		console.log(taskEl);
 		taskEl.remove();
 	}
 }

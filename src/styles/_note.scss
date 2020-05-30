@@ -9,6 +9,13 @@
 	// width: 150px;
 	// height: 150px; // make this a method to set h and v
 	align-items: center;
+	text-align: center;
+	&:hover {
+		cursor: grab;
+	}
+	* { 
+		padding: 10px;
+	}
 	
 	.noteBar {
 		background-color: $red;

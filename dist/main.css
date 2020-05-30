@@ -66,34 +66,55 @@ nav {
   display: flex;
   min-height: 85vh;
   background-color: cadetblue; }
-  .board form {
-    display: flex;
-    flex-wrap: wrap;
-    width: 20vw;
-    flex-direction: column; }
-    .board form * {
-      outline: none;
-      padding: 1vh; }
-    .board form textarea {
-      resize: none; }
+  .board article {
+    padding: 10px 0 0 10px; }
+    .board article h1 {
+      text-align: center;
+      padding: 10px; }
+    .board article form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 20vw;
+      flex-direction: column; }
+      .board article form * {
+        outline: none;
+        padding: 1vh; }
+      .board article form textarea {
+        resize: none; }
 
 .hidden {
   display: none; }
 
 .active {
-  flex-wrap: wrap; }
+  display: flex; }
 
 .board .taskSection {
-  background-color: white;
-  border: 1px solid black;
-  min-height: 50vh;
-  width: 20vw; }
+  padding: 20px;
+  margin: 0 10px 0 10px;
+  box-sizing: border-box;
+  height: inherit;
+  flex: 1; }
+
+.board .draggedOver {
+  background-color: #dbdbff;
+  border-left: 1px dashed black;
+  border-right: 1px dashed black; }
+
+.board .normalState {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-color: white; }
 
 .note {
   margin: 1%;
   background-color: yellow;
   min-width: 150px;
   min-height: 150px;
-  align-items: center; }
+  align-items: center;
+  text-align: center; }
+  .note:hover {
+    cursor: grab; }
+  .note * {
+    padding: 10px; }
   .note .noteBar {
     background-color: red; }

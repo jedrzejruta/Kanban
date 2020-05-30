@@ -3,12 +3,14 @@ const webpack = require('webpack');
 const path = require('path');
 const config = {
 	devServer: {
-		 contentBase: 'dist' // path.join(__dirname, 'dist')
+		publicPath: 'dist',
+		contentBase: path.resolve(__dirname, 'dist'),
+		watchContentBase: true
 	},
 	mode: 'development',
 	entry: './src/main.ts',
 	resolve: {
-		extensions: [ '.tsx', '.ts', '.js', '.scss', '.js'],
+		extensions: [ '.tsx', '.ts', '.js', '.scss'],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

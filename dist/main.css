@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
-* {
+html, body, * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0; }
 
@@ -11,23 +12,27 @@ header {
   margin-left: 5vw; }
   header #boardMenu {
     display: flex;
-    min-height: 15vh;
+    min-height: 10vh;
     box-sizing: border-box;
     align-items: center;
-    padding: 1%;
     background-color: limegreen; }
     header #boardMenu h1 {
+      padding-left: 1vw;
       flex: 3; }
     header #boardMenu form {
       display: flex;
       flex-wrap: wrap;
-      flex: 2; }
+      flex: 2;
+      padding-right: 1vw; }
       header #boardMenu form label {
         margin: auto; }
-      header #boardMenu form input, header #boardMenu form button {
-        margin-left: 1vh;
-        padding: 1vh; }
+      header #boardMenu form input #boardName, header #boardMenu form button {
+        min-height: 7vh;
+        font-family: inherit;
+        margin-left: 1vh; }
       header #boardMenu form input {
+        padding-left: 1vw;
+        margin-left: 0.5vw;
         flex: 2;
         outline: none;
         border: 2px solid black; }
@@ -64,22 +69,22 @@ nav {
   margin-left: 5vw;
   box-sizing: border-box;
   display: flex;
-  min-height: 85vh;
+  min-height: 90vh;
   background-color: cadetblue; }
-  .board article {
-    padding: 10px 0 0 10px; }
-    .board article h1 {
+  .board .formContainer {
+    flex: 1;
+    margin: 20px 0 0 20px; }
+    .board .formContainer h1 {
       text-align: center;
       padding: 10px; }
-    .board article form {
+    .board .formContainer form {
       display: flex;
       flex-wrap: wrap;
-      width: 20vw;
       flex-direction: column; }
-      .board article form * {
+      .board .formContainer form * {
         outline: none;
         padding: 1vh; }
-      .board article form textarea {
+      .board .formContainer form textarea {
         resize: none; }
 
 .hidden {
@@ -88,27 +93,32 @@ nav {
 .active {
   display: flex; }
 
-.board .taskSection {
-  padding: 20px;
-  margin: 0 10px 0 10px;
-  box-sizing: border-box;
-  height: inherit;
-  flex: 1; }
-
-.board .draggedOver {
-  background-color: #dbdbff;
-  border-left: 1px dashed black;
-  border-right: 1px dashed black; }
-
-.board .normalState {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.board .taskSectionContainer {
+  display: flex;
+  flex: 3;
+  margin: 0 0 0 20px;
+  padding-right: 20px;
   background-color: white; }
+  .board .taskSectionContainer .taskSection {
+    flex: 1;
+    padding: 20px;
+    margin: 10px 0 0 20px;
+    box-sizing: border-box;
+    height: inherit; }
+    .board .taskSectionContainer .taskSection h1 {
+      text-align: center; }
+  .board .taskSectionContainer .draggedOver {
+    background-color: #dbdbff;
+    border-left: 1px dashed black;
+    border-right: 1px dashed black; }
+  .board .taskSectionContainer .normalState {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: white; }
 
 .note {
-  margin: 1%;
+  margin: 20px 0 20px 0;
   background-color: yellow;
-  min-width: 150px;
   min-height: 150px;
   align-items: center;
   text-align: center; }

@@ -4,17 +4,17 @@
 .board {
 	margin-left: 5vw;
 	box-sizing: border-box;
-	@include setFlexAndMinHeight(85);
+	@include setFlexAndMinHeight(90);
 	background-color: $boardColor;
-	article {
-		padding: 10px 0 0 10px;
+	.formContainer {
+		flex: 1;
+		margin: 20px 0 0 20px;
 		h1 {
 			text-align: center;
 			padding: 10px;
 		}
 		form {
 			@include setFormFlex;
-			width: 20vw;
 			flex-direction: column;
 			* {
 				@include noOutlineInput;

@@ -2,7 +2,8 @@
 @import '_mixins.scss', 
 	'_colors.scss';
 
-* {
+html, body, *{
+	box-sizing: border-box;
 	@include resetPaddingMargin;
 }
 body {

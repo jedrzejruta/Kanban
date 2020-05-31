@@ -2,21 +2,31 @@
 	'_colors.scss';
 
 .board {
-	.taskSection {
-		padding: 20px;
-		margin: 0 10px 0 10px;
-		box-sizing: border-box;
-		height: inherit;
-		flex: 1;
-		}
-	.draggedOver {
-		background-color: rgb(219, 219, 255);
-		border-left: 1px dashed black;
-		border-right: 1px dashed black;
-	}
-	.normalState {
-		border-left: 1px solid black;
-		border-right: 1px solid black;
+	.taskSectionContainer {
+		display: flex;
+		flex: 3;
+		margin: 0 0 0 20px;
+		padding-right: 20px;
 		background-color: white;
+		.taskSection {
+			flex: 1;
+			padding: 20px;
+			margin: 10px 0 0 20px;
+			box-sizing: border-box;
+			height: inherit;
+			h1 {
+				text-align: center;
+			}
+		}
+		.draggedOver {
+			background-color: rgb(219, 219, 255);
+			border-left: 1px dashed black;
+			border-right: 1px dashed black;
+		}
+		.normalState {
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			background-color: white;
+		}
 	}
 }

@@ -4,25 +4,29 @@
 header {
 	margin-left: 5vw;
 	#boardMenu {
-		@include setFlexAndMinHeight(15);
+		@include setFlexAndMinHeight(10);
 		box-sizing: border-box;
 		align-items: center;
-		padding: 1%;
 		background-color: $lightGreen;
 		h1{
+			padding-left: 1vw;
 			flex: 3;
 		}
 		form {
 			@include setFormFlex;
 			flex: 2;
+			padding-right: 1vw;
 			label {
 				margin: auto;
 			}
-			input, button {
+			input #boardName, button {
+				min-height: 7vh;
+				font-family: inherit;
 				margin-left: 1vh;
-				padding: 1vh;
 			}
 			input {
+				padding-left: 1vw;
+				margin-left: 0.5vw;
 				flex: 2;
 				@include setInputStyle(2, black);
 				@include validateInput($red, $blue);

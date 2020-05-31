@@ -3,7 +3,6 @@ export class Task {
 		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'),
 			toDoTaskSection: HTMLElement = <HTMLElement>activeBoard.querySelector('#taskList0'); // append task to active board 
 
-		console.log('dziala');
 		const newTaskEl: HTMLDivElement = document.createElement('div'),
 			newTaskName: HTMLHeadingElement = document.createElement('h1'),
 			newTaskDesc: HTMLParagraphElement = document.createElement('p'),

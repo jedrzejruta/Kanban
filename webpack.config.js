@@ -8,13 +8,16 @@ const config = {
 		watchContentBase: true
 	},
 	mode: 'development',
-	entry: './src/main.ts',
+	entry: {
+		'main': './src/main.ts',
+		'client': './src/client.ts'
+	},	
 	resolve: {
 		extensions: [ '.tsx', '.ts', '.js', '.scss'],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'main.js'
+		filename: '[name].js'
 	},
 	module: {
 		rules: [
@@ -55,4 +58,29 @@ const config = {
 		],
 	},
 };
-module.exports = config;
+
+const serverConfig = {
+	entry: {
+		'server': './src/server.ts'
+	},
+	mode: 'development',
+	target: 'node',
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				loader: 'ts-loader',
+			},
+		],
+	},
+	externals: ['bufferutil', 'utf-8-validate'],
+	resolve: {
+		extensions: [ '.tsx', '.ts', '.js'],
+	},
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].js'
+	}
+};
+module.exports = [config, serverConfig];

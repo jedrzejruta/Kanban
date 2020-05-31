@@ -47,11 +47,6 @@
 		"eqeqeq": "error",
 		"arrow-spacing": "warn",
 		"no-empty": "error",
-		"no-magic-numbers": [
-			"error", {
-				"ignore": [0]
-			}
-		],	
 		"no-mixed-spaces-and-tabs": "error",
 		"no-multiple-empty-lines": "error",
 		"spaced-comment": "warn"

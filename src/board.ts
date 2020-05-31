@@ -41,6 +41,7 @@ export class Board  {
 		taskForm.appendChild(taskDescInput);
 		taskForm.appendChild(addTaskBtn);
 
+		boardInfoContainer.className = 'formContainer';
 		boardInfoContainer.appendChild(newBoardTitle);
 		boardInfoContainer.appendChild(taskForm);
 
@@ -49,19 +50,30 @@ export class Board  {
 		mainPage.appendChild(newBoardSection);
 		addTaskBtn.addEventListener('click', () => this.addNewTask(this.tasks));
 		this.createListSections(newBoardSection);
+		this.addListSectionTitle(newBoardSection);
 	}
 
 	private createListSections(boardSection: HTMLElement): void{
-		// eslint-disable-next-line no-magic-numbers
+		const taskSectionContainer: HTMLElement = document.createElement('article');
+		taskSectionContainer.classList.add('taskSectionContainer');
 		for(let i = 0; i < 3; i++){
-			const taskSection = document.createElement('section');
+			const taskSection: HTMLElement = document.createElement('section');
 
 			taskSection.id = `taskList${i.toString()}`;
 			taskSection.classList.add('taskSection','normalState');
-			boardSection.appendChild(taskSection);
+			taskSectionContainer.appendChild(taskSection);
+			boardSection.appendChild(taskSectionContainer);
 
 			this.handleDragEvents(taskSection);
 		}	
+	}
+
+	private addListSectionTitle(boardSection: HTMLElement): void{
+		const sections: NodeListOf<HTMLElement> = boardSection.querySelectorAll('.taskSection');
+
+		sections[0].innerHTML = '<h1>ToDo</h1>';
+		sections[1].innerHTML = '<h1>W trakcie</h1>';
+		sections[2].innerHTML = '<h1>Zrobione</h1>';
 	}
 
 	private addNewTask(tasks: Array<Task>): void {

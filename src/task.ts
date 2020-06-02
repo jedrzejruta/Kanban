@@ -9,18 +9,18 @@ export class Task {
 			newTaskDelButton: HTMLButtonElement = document.createElement('button'),
 			taskID: string = 't' + Date.now().toString();
 
-		newTaskName.textContent = taskName;
-		newTaskDesc.textContent = taskDesc;
 		newTaskEl.draggable = true;
 		newTaskEl.id = taskID;
 		newTaskEl.classList.add('note');
+			
+		newTaskName.textContent = taskName;
 		newTaskName.classList.add('noteBar');
+
+		newTaskDesc.textContent = taskDesc;
 
 		newTaskDelButton.textContent = 'Delete task'; 
 
-		newTaskEl.appendChild(newTaskName);
-		newTaskEl.appendChild(newTaskDesc);
-		newTaskEl.appendChild(newTaskDelButton);
+		newTaskEl.append(newTaskName, newTaskDesc, newTaskDelButton);
 		toDoTaskSection.appendChild(newTaskEl);
 
 		newTaskDelButton.addEventListener('click',() => {

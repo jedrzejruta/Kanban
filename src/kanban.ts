@@ -26,20 +26,17 @@ export class Kanban {
 		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard');
 
 		newBoardButton.addEventListener('click', () => {
-			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim(); // also document.querySelector<HTMLInputElement>('#boardId')!.value; 
+			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
 
 			if (_boardName.length !== 0) {
 				const board: Board = new Board(_boardName);
-				// console.log(board);
 
-				// hides other boards and makes active one we are adding right now
 				// TODO: method to use more times
 				if(this.boards.length !== 0) {
-					const boardsArray: HTMLElement[] = Array.from(document.querySelectorAll('.board'));
-					const tempArr: HTMLElement[] = boardsArray.filter(el => el.id !== board.boardID);
+					const boardsArray: HTMLElement[] = Array.from(document.querySelectorAll('.board')),
+						tempArr: HTMLElement[] = boardsArray.filter(el => el.id !== board.boardID);
 					tempArr.forEach(el => {
-						el.classList.add('hidden');
-						el.classList.remove('active');
+						el.classList.replace('active','hidden');
 					});
 				}
 
@@ -63,37 +60,29 @@ export class Kanban {
 	// add method modificators 
 	private displayBoards(board: Board): void {
 		this.getFromLocalStorage();
-		const boardList: HTMLUListElement = <HTMLUListElement>document.querySelector('#boardList');
-		const boardListEl: HTMLLIElement = document.createElement('li');
-		// const tempBoard: Array<Board> = this.boards.filter(el => el.boardName === board.boardName);
-		// boardListEl.textContent = tempBoard[0].boardName;
+		const boardList: HTMLUListElement = <HTMLUListElement>document.querySelector('#boardList'),
+			boardListEl: HTMLLIElement = document.createElement('li');
 
-		boardListEl.textContent = board.boardName;
+		boardListEl.textContent = `📝${board.boardName}`; // todo: only show emoji, on hover show full text
 		boardListEl.classList.add(board.boardID);
 		boardList.appendChild(boardListEl);
 		this.showActiveBoard();
 	}
 
 	private showActiveBoard(): void {
-		const boardListElements: HTMLLIElement[] = Array.from(document.querySelectorAll('#boardList>li'));
-		const boardArray: HTMLElement[] = Array.from(document.querySelectorAll('.board'));
-		
+		const boardListElements: NodeListOf<HTMLLIElement> = document.querySelectorAll('#boardList>li'),
+			boardArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
+
 		boardListElements.forEach(el => {
 			el.addEventListener('click', () => {
 				const activeBoardID: string = el.className;
 				boardArray.forEach(element => {
 					if(element.id === activeBoardID)
 					{
-						element.classList.remove('hidden');
-						element.classList.add('active');
+						element.classList.replace('hidden','active');
 					}
-					else {
-						element.classList.add('hidden');
-						element.classList.remove('active');
-					}
+					else element.classList.replace('active','hidden');
 				});
-				// activeBoard.classList.add('active');
-				// activeBoard.classList.remove('hidden');
 			});
 		});
 

@@ -37,13 +37,10 @@ export class Board  {
 
 		newBoardSection.classList.add('board','active');
 		newBoardSection.id = this.boardID;
-		taskForm.appendChild(taskNameInput);
-		taskForm.appendChild(taskDescInput);
-		taskForm.appendChild(addTaskBtn);
+		taskForm.append(taskNameInput, taskDescInput, addTaskBtn);
 
 		boardInfoContainer.className = 'formContainer';
-		boardInfoContainer.appendChild(newBoardTitle);
-		boardInfoContainer.appendChild(taskForm);
+		boardInfoContainer.append(newBoardTitle, taskForm);
 
 		newBoardSection.appendChild(boardInfoContainer);
 

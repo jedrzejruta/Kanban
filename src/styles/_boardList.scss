@@ -6,18 +6,29 @@ nav {
 	min-height: 100vh;
 	position: fixed;
 	background-color: $red;
+	transition: width 300ms ease;
+	&:hover {
+		width: 10vw;
+		transition: width 300ms ease;
+		ul li {
+			word-wrap: break-word;
+			white-space: pre-wrap;
+		}
+	}
 	ul {
-		display: flex;
+		@include setFormFlex;
 		flex-direction: column;
-		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		list-style: none;
 		li {
 			box-sizing: border-box;
-			padding: 5px;
-			text-align: center;
-			word-wrap: break-word; // prevent from adding too long board name
+			padding: 15px 5px 15px 10px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			// text-align: center;
+			// word-wrap: break-word; // prevent from adding too long board name
 			width: 100%;
 			@include hovered($hoverRed, pointer);
 		}

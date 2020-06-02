@@ -39,3 +39,8 @@
 		border-color: $correctInputColor;
 	}
 }
+
+@mixin setTaskSectionBorders($borderStyle) {
+	border-left: 1px $borderStyle black;
+	border-right: 1px $borderStyle black;
+}

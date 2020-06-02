@@ -17,6 +17,7 @@
 			@include setFormFlex;
 			flex-direction: column;
 			* {
+				font-family: inherit;
 				@include noOutlineInput;
 				padding: 1vh;
 			}

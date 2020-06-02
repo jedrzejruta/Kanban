@@ -26,7 +26,7 @@ header {
       padding-right: 1vw; }
       header #boardMenu form label {
         margin: auto; }
-      header #boardMenu form input #boardName, header #boardMenu form button {
+      header #boardMenu form input, header #boardMenu form button {
         min-height: 7vh;
         font-family: inherit;
         margin-left: 1vh; }
@@ -47,19 +47,27 @@ nav {
   width: 5vw;
   min-height: 100vh;
   position: fixed;
-  background-color: red; }
+  background-color: red;
+  transition: width 300ms ease; }
+  nav:hover {
+    width: 10vw;
+    transition: width 300ms ease; }
+    nav:hover ul li {
+      word-wrap: break-word;
+      white-space: pre-wrap; }
   nav ul {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     list-style: none; }
     nav ul li {
       box-sizing: border-box;
-      padding: 5px;
-      text-align: center;
-      word-wrap: break-word;
+      padding: 15px 5px 15px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       width: 100%; }
       nav ul li:hover {
         background-color: firebrick;
@@ -82,6 +90,7 @@ nav {
       flex-wrap: wrap;
       flex-direction: column; }
       .board .formContainer form * {
+        font-family: inherit;
         outline: none;
         padding: 1vh; }
       .board .formContainer form textarea {
@@ -122,6 +131,8 @@ nav {
   min-height: 150px;
   align-items: center;
   text-align: center; }
+  .note button {
+    font-family: inherit; }
   .note:hover {
     cursor: grab; }
   .note * {

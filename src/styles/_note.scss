@@ -9,6 +9,9 @@
 	// height: 150px; // make this a method to set h and v
 	align-items: center;
 	text-align: center;
+	button {
+		font-family: inherit;
+	}
 	&:hover {
 		cursor: grab;
 	}

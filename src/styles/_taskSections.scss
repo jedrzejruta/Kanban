@@ -20,12 +20,10 @@
 		}
 		.draggedOver {
 			background-color: rgb(219, 219, 255);
-			border-left: 1px dashed black;
-			border-right: 1px dashed black;
+			@include setTaskSectionBorders(dashed);
 		}
 		.normalState {
-			border-left: 1px solid black;
-			border-right: 1px solid black;
+			@include setTaskSectionBorders(solid);
 			background-color: white;
 		}
 	}

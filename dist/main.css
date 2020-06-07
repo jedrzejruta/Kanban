@@ -43,18 +43,30 @@ header {
       header #boardMenu form button {
         flex: 1; }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
 nav {
   width: 5vw;
   min-height: 100vh;
   position: fixed;
   background-color: red;
-  transition: width 300ms ease; }
+  transition: width 500ms ease; }
   nav:hover {
-    width: 10vw;
-    transition: width 300ms ease; }
-    nav:hover ul li {
-      word-wrap: break-word;
-      white-space: pre-wrap; }
+    width: 15vw;
+    transition: width 500ms ease; }
+    nav:hover .listText {
+      animation: fadeIn 600ms;
+      display: block; }
   nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -63,15 +75,26 @@ nav {
     justify-content: center;
     list-style: none; }
     nav ul li {
+      display: flex;
+      align-items: center;
       box-sizing: border-box;
       padding: 15px 5px 15px 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       width: 100%; }
       nav ul li:hover {
         background-color: firebrick;
         cursor: pointer; }
+      nav ul li .emoji {
+        margin-right: 1vw;
+        font-size: inherit; }
+      nav ul li .fade {
+        animation: fadeOut 600ms; }
+      nav ul li .hidd {
+        display: none; }
+      nav ul li .visible {
+        display: block;
+        animation: fadeIn 600ms; }
+      nav ul li .listText {
+        display: none; }
 
 .board {
   margin-left: 5vw;

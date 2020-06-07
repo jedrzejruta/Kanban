@@ -4,12 +4,12 @@ export class Board  {
 	private tasks: Array<Task> = [];
 	public boardID: string;
 
-	constructor(public boardName: string) {
-		this.boardID = Date.now().toString();
-		this.addNewBoard(boardName);
+	constructor(public boardName: string, boardID: string) {
+		this.boardID = boardID;
+		this.renderBoard(boardName);
 	}
 
-	private addNewBoard(_boardName: string): void{
+	private renderBoard(_boardName: string): void{
 		const mainPage: HTMLElement = <HTMLElement>document.querySelector('main'),
 			taskForm: HTMLFormElement = document.createElement('form'),
 			addTaskBtn: HTMLButtonElement = document.createElement('button'),
@@ -35,7 +35,7 @@ export class Board  {
 
 		newBoardTitle.textContent = _boardName;
 
-		newBoardSection.classList.add('board','active');
+		newBoardSection.classList.add('board', 'hidden');
 		newBoardSection.id = this.boardID;
 		taskForm.append(taskNameInput, taskDescInput, addTaskBtn);
 

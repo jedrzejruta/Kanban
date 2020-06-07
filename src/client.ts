@@ -15,10 +15,12 @@ socket.onerror = (error) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const boardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard');
-	boardButton.addEventListener('click', () => {
-		const boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
-		socket.send(`board name => ${boardName}`);
-	});
+	if(socket.readyState !== 3) {
+		boardButton.addEventListener('click', () => {
+			const boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
+			socket.send(`board name => ${boardName}`);
+		});
+	}
 });
 
 

@@ -1,18 +1,32 @@
 @import '_mixins.scss',
 	'_colors.scss';
 
+
+@keyframes fadeIn {
+	from { opacity:  0; }
+	to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
 nav {
 	width: 5vw;
 	min-height: 100vh;
 	position: fixed;
 	background-color: $red;
-	transition: width 300ms ease;
+	transition: width 500ms ease;
 	&:hover {
-		width: 10vw;
-		transition: width 300ms ease;
-		ul li {
-			word-wrap: break-word;
-			white-space: pre-wrap;
+		width: 15vw;
+		transition: width 500ms ease;
+		// .emoji {
+		// 	width: initial;
+		// }
+		.listText {
+			animation: fadeIn 600ms;
+			display: block;
 		}
 	}
 	ul {
@@ -22,15 +36,34 @@ nav {
 		justify-content: center;
 		list-style: none;
 		li {
+			display: flex;
+			align-items: center;
 			box-sizing: border-box;
 			padding: 15px 5px 15px 10px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			//  white-space: nowrap;
+			// overflow: hidden;
+			// text-overflow: ellipsis;
 			// text-align: center;
 			// word-wrap: break-word; // prevent from adding too long board name
 			width: 100%;
 			@include hovered($hoverRed, pointer);
+			.emoji {
+				margin-right: 1vw;
+				font-size: inherit;
+			}
+			.fade {
+				animation: fadeOut 600ms;
+			}
+			.hidd {
+				display: none;
+			}
+			.visible {
+				display: block;
+				animation: fadeIn 600ms;
+			}
+			.listText {
+				display: none;
+			}
 		}
 	}
 }

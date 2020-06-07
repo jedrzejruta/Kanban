@@ -1,23 +1,31 @@
 import { Board } from './board';
 
 export class Kanban {
-	private boards: Array<Board> =  []; // this.getFromLocalStorage();
+	private boards: Array<Board> = this.getFromLocalStorage(); // [];
 
-	// update boards when task added?
+	// TODO:
+	// show first board from list on page load
+	// update tasks in board array
+	// tasks localstorage
 
 	constructor() {
 		this.setInputValidity();
+		this.boards.forEach(el => {
+			this.renderBoardList(el);
+			new Board(el.boardName, el.boardID);
+		});
 		this.addNewBoard();
+		this.showActiveBoard();
 	}
 
 	private setInputValidity(): void {
 		const boardInput: HTMLInputElement = <HTMLInputElement>document.querySelector('#boardName');
-		
+
 		boardInput.addEventListener('input', () => {
 			boardInput.setCustomValidity('');
 		});
 
-		boardInput.addEventListener('invalid',() => {
+		boardInput.addEventListener('invalid', () => {
 			boardInput.setCustomValidity('Nazwa tablicy nie może być pusta');
 		});
 	}
@@ -29,44 +37,60 @@ export class Kanban {
 			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
 
 			if (_boardName.length !== 0) {
-				const board: Board = new Board(_boardName);
-
-				// TODO: method to use more times
-				if(this.boards.length !== 0) {
-					const boardsArray: HTMLElement[] = Array.from(document.querySelectorAll('.board')),
-						tempArr: HTMLElement[] = boardsArray.filter(el => el.id !== board.boardID);
-					tempArr.forEach(el => {
-						el.classList.replace('active','hidden');
+				const boardID: string = Date.now().toString(),
+					board: Board = new Board(_boardName, boardID);
+					
+				if (this.boards.length !== 0) {
+					const boardsArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
+				
+					boardsArray.forEach(el => {
+						this.toggleBoardClass(el, board.boardID);
 					});
 				}
-
 				this.boards.push(board);
 				this.addToLocalStorage();
-				this.displayBoards(board);
+				this.renderBoardList(board);
+				this.showActiveBoard();
 			}
 			else return;
 		});
 	}
-	// not working with empty localstorage
+
 	private addToLocalStorage(): void {
 		localStorage.setItem('boards', JSON.stringify(this.boards));
 	}
 
 	private getFromLocalStorage(): Array<Board> {
-		const t =  JSON.parse(<string>localStorage.getItem('boards'));
-		console.table(t);
-		return t;
+		if (localStorage.getItem('boards')) {
+			const t = JSON.parse(<string>localStorage.getItem('boards'));
+			return t;
+		}
+		else {
+			return [];
+		}
 	}
-	// add method modificators 
-	private displayBoards(board: Board): void {
-		this.getFromLocalStorage();
-		const boardList: HTMLUListElement = <HTMLUListElement>document.querySelector('#boardList'),
-			boardListEl: HTMLLIElement = document.createElement('li');
 
-		boardListEl.textContent = `📝${board.boardName}`; // todo: only show emoji, on hover show full text
-		boardListEl.classList.add(board.boardID);
+	private renderBoardList(boardEl: Board): void {
+		const boardList: HTMLUListElement = <HTMLUListElement>document.querySelector('#boardList'),
+			boardListEl: HTMLLIElement = document.createElement('li'),
+			boardListText: HTMLParagraphElement = document.createElement('p'),
+			boardListEmoji: HTMLParagraphElement = document.createElement('p');
+
+		boardListEmoji.textContent = '📝';
+		boardListEmoji.classList.add('emoji');
+		boardListText.textContent = boardEl.boardName;
+		boardListText.classList.add('listText');
+		boardListEl.append(boardListEmoji, boardListText);
+		boardListEl.classList.add(boardEl.boardID);
 		boardList.appendChild(boardListEl);
-		this.showActiveBoard();
+		// this.handleNavHover();
+	}
+
+	private toggleBoardClass(boardSection: HTMLElement, activeBoardID: string): void{
+		if(boardSection.id !== activeBoardID) {
+			boardSection.classList.replace('active','hidden');
+		}
+		else boardSection.classList.replace('hidden','active');
 	}
 
 	private showActiveBoard(): void {
@@ -76,15 +100,29 @@ export class Kanban {
 		boardListElements.forEach(el => {
 			el.addEventListener('click', () => {
 				const activeBoardID: string = el.className;
-				boardArray.forEach(element => {
-					if(element.id === activeBoardID)
-					{
-						element.classList.replace('hidden','active');
-					}
-					else element.classList.replace('active','hidden');
+				boardArray.forEach(section => {
+					this.toggleBoardClass(section, activeBoardID);
 				});
 			});
 		});
-
 	}
+
+	private handleNavHover(): void { // almost there
+		const navigation: HTMLElement = <HTMLElement>document.querySelector('nav'),
+			boardListElements: NodeListOf<HTMLLIElement> = navigation.querySelectorAll('li');
+		navigation.addEventListener('mouseover', () => {
+			boardListElements.forEach(el => {
+				el.lastElementChild?.classList.replace('hidden', 'visible');
+			});
+		});
+		navigation.addEventListener('mouseout', () => {
+			boardListElements.forEach(el => {
+					el.lastElementChild?.classList.replace('visible', 'fade'); // change last elchild to propriate p el
+					setTimeout(() => {
+						el.lastElementChild?.classList.add('hidden');
+					}, 600);
+			});
+		});
+	}
+
 }

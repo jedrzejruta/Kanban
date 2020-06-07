@@ -1,13 +1,16 @@
 export class Task {
 	constructor(taskName: string, taskDesc: string) {
-		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'),
-			toDoTaskSection: HTMLElement = <HTMLElement>activeBoard.querySelector('#taskList0'); // append task to active board 
+		this.renderTask(taskName, taskDesc);		
+	}
 
-		const newTaskEl: HTMLDivElement = document.createElement('div'),
+	renderTask(taskName: string, taskDesc: string): void{
+		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'),
+			toDoTaskSection: HTMLElement = <HTMLElement>activeBoard.querySelector('#taskList0'),
+			newTaskEl: HTMLDivElement = document.createElement('div'),
 			newTaskName: HTMLHeadingElement = document.createElement('h1'),
 			newTaskDesc: HTMLParagraphElement = document.createElement('p'),
 			newTaskDelButton: HTMLButtonElement = document.createElement('button'),
-			taskID: string = 't' + Date.now().toString();
+			taskID: string = `t${Date.now().toString()}`;
 
 		newTaskEl.draggable = true;
 		newTaskEl.id = taskID;
@@ -49,9 +52,3 @@ export class Task {
 		taskEl.remove();
 	}
 }
-// window.onclick = (e : Event) => {
-// 	console.log(e.target);
-
-// }; 
-// TODO:
-// Task list contains notes, add notes, drag and drop

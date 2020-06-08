@@ -1,10 +1,13 @@
 import { Task } from './task';
 
 export class Board  {
-	private tasks: Array<Task> = [];
+	private tasks: Array<Task> = this.getFromLocalStorage();
 	public boardID: string;
 
 	constructor(public boardName: string, boardID: string) {
+		// this.tasks.forEach(el => {
+		// 	new Task(el.taskName, el.taskDesc);
+		// });
 		this.boardID = boardID;
 		this.renderBoard(boardName);
 	}
@@ -45,9 +48,23 @@ export class Board  {
 		newBoardSection.appendChild(boardInfoContainer);
 
 		mainPage.appendChild(newBoardSection);
-		addTaskBtn.addEventListener('click', () => this.addNewTask(this.tasks));
+		addTaskBtn.addEventListener('click', () => this.addNewTask());
 		this.createListSections(newBoardSection);
 		this.addListSectionTitle(newBoardSection);
+	}
+
+	private addToLocalStorage(): void {
+		localStorage.setItem('tasks', JSON.stringify(this.tasks));
+	}
+
+	private getFromLocalStorage(): Array<Task> {
+		if (localStorage.getItem('tasks')) {
+			const t = JSON.parse(<string>localStorage.getItem('tasks'));
+			return t;
+		}
+		else {
+			return [];
+		}
 	}
 
 	private createListSections(boardSection: HTMLElement): void{
@@ -73,14 +90,15 @@ export class Board  {
 		sections[2].innerHTML = '<h1>Zrobione</h1>';
 	}
 
-	private addNewTask(tasks: Array<Task>): void {
+	private addNewTask(): void {
 		const activeBoard: HTMLElement = <HTMLElement>document.querySelector('.active'),
 			taskName: string = (<HTMLInputElement>activeBoard.querySelector('.taskListName')).value.trim(),
 			taskDesc: string = (<HTMLTextAreaElement>activeBoard.querySelector('.taskListDesc')).value;
 
 		if(taskName.length !== 0) {
 			const task: Task = new Task(taskName, taskDesc);
-			tasks.push(task);
+			this.tasks.push(task);
+			this.addToLocalStorage();
 		}
 		else return;
 	}

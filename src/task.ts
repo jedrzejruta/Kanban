@@ -1,5 +1,9 @@
 export class Task {
+	public taskName: string;
+	public taskDesc: string;
 	constructor(taskName: string, taskDesc: string) {
+		this.taskName = taskName;
+		this.taskDesc = taskDesc;
 		this.renderTask(taskName, taskDesc);		
 	}
 

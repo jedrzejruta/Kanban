@@ -31,7 +31,7 @@ export class Kanban {
 	}
 
 	private addNewBoard(): void {
-		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard');
+		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard'); // board not displaying when localstorage is empty
 
 		newBoardButton.addEventListener('click', () => {
 			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
@@ -83,20 +83,18 @@ export class Kanban {
 		boardListEl.append(boardListEmoji, boardListText);
 		boardListEl.classList.add(boardEl.boardID);
 		boardList.appendChild(boardListEl);
-		// this.handleNavHover();
 	}
 
 	private toggleBoardClass(boardSection: HTMLElement, activeBoardID: string): void{
-		if(boardSection.id !== activeBoardID) {
-			boardSection.classList.replace('active','hidden');
-		}
-		else boardSection.classList.replace('hidden','active');
+		boardSection.id !== activeBoardID ?
+			boardSection.classList.replace('active','hidden') : boardSection.classList.replace('hidden','active');
 	}
 
 	private showActiveBoard(): void {
 		const boardListElements: NodeListOf<HTMLLIElement> = document.querySelectorAll('#boardList>li'),
 			boardArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
 
+		// boardArray.length !== 0 ? this.toggleBoardClass(boardArray[0],boardArray[0].id) : console.log('no boards');
 		boardListElements.forEach(el => {
 			el.addEventListener('click', () => {
 				const activeBoardID: string = el.className;
@@ -109,18 +107,18 @@ export class Kanban {
 
 	private handleNavHover(): void { // almost there
 		const navigation: HTMLElement = <HTMLElement>document.querySelector('nav'),
-			boardListElements: NodeListOf<HTMLLIElement> = navigation.querySelectorAll('li');
+			boardListElements: NodeListOf<HTMLParagraphElement> = navigation.querySelectorAll('li> .listText');
 		navigation.addEventListener('mouseover', () => {
 			boardListElements.forEach(el => {
-				el.lastElementChild?.classList.replace('hidden', 'visible');
+				el.classList.replace('hidden','visible');
 			});
 		});
 		navigation.addEventListener('mouseout', () => {
 			boardListElements.forEach(el => {
-					el.lastElementChild?.classList.replace('visible', 'fade'); // change last elchild to propriate p el
-					setTimeout(() => {
-						el.lastElementChild?.classList.add('hidden');
-					}, 600);
+				el.classList.replace('visible', 'fade');// change last elchild to propriate p el
+				setTimeout(() => {
+					el.classList.replace('fade','hidden');
+				}, 600);
 			});
 		});
 	}

@@ -13,18 +13,16 @@
 }
 
 nav {
-	width: 5vw;
+	width: 5vw; // min-width makes text stay in bounds
 	min-height: 100vh;
 	position: fixed;
-	background-color: $red;
+	background-color: #11303F;
 	transition: width 500ms ease;
 	&:hover {
 		width: 15vw;
 		transition: width 500ms ease;
-		// .emoji {
-		// 	width: initial;
-		// }
 		.listText {
+			font-size: 3vh;
 			animation: fadeIn 600ms;
 			display: block;
 		}
@@ -36,33 +34,31 @@ nav {
 		justify-content: center;
 		list-style: none;
 		li {
+			color: white;
+			min-height: 6vh;
 			display: flex;
 			align-items: center;
 			box-sizing: border-box;
-			padding: 15px 5px 15px 10px;
-			//  white-space: nowrap;
-			// overflow: hidden;
-			// text-overflow: ellipsis;
-			// text-align: center;
-			// word-wrap: break-word; // prevent from adding too long board name
+			// padding: 1%;
+			// padding: 15px 5px 15px 10px;
+			text-align: center;
 			width: 100%;
-			@include hovered($hoverRed, pointer);
+			@include hovered(#506468, pointer);
 			.emoji {
-				margin-right: 1vw;
-				font-size: inherit;
+				font-size: 3vh;
 			}
 			.fade {
 				animation: fadeOut 600ms;
 			}
-			.hidd {
+			.hidden {
+				display: none;
+			}
+			.listText {
 				display: none;
 			}
 			.visible {
 				display: block;
 				animation: fadeIn 600ms;
-			}
-			.listText {
-				display: none;
 			}
 		}
 	}

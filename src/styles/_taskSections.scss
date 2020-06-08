@@ -7,11 +7,10 @@
 		flex: 3;
 		margin: 0 0 0 20px;
 		padding-right: 20px;
-		background-color: white;
 		.taskSection {
 			flex: 1;
 			padding: 20px;
-			margin: 10px 0 0 20px;
+			margin: 0 0 0 20px;
 			box-sizing: border-box;
 			height: inherit;
 			h1 {
@@ -19,12 +18,12 @@
 			}
 		}
 		.draggedOver {
-			background-color: rgb(219, 219, 255);
+			background-color: #D5E5E6;
 			@include setTaskSectionBorders(dashed);
 		}
 		.normalState {
 			@include setTaskSectionBorders(solid);
-			background-color: white;
+			background-color: #ECF0F1;			;
 		}
 	}
 }

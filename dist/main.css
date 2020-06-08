@@ -15,7 +15,8 @@ header {
     min-height: 10vh;
     box-sizing: border-box;
     align-items: center;
-    background-color: limegreen; }
+    background-color: #00587A;
+    color: floralwhite; }
     header #boardMenu h1 {
       padding-left: 1vw;
       flex: 3; }
@@ -37,9 +38,9 @@ header {
         outline: none;
         border: 2px solid black; }
         header #boardMenu form input:not(:placeholder-shown) {
-          border-color: red; }
+          border-color: #EB6361; }
         header #boardMenu form input:valid {
-          border-color: blue; }
+          border-color: #97CE68; }
       header #boardMenu form button {
         flex: 1; }
 
@@ -59,12 +60,13 @@ nav {
   width: 5vw;
   min-height: 100vh;
   position: fixed;
-  background-color: red;
+  background-color: #11303F;
   transition: width 500ms ease; }
   nav:hover {
     width: 15vw;
     transition: width 500ms ease; }
     nav:hover .listText {
+      font-size: 3vh;
       animation: fadeIn 600ms;
       display: block; }
   nav ul {
@@ -75,33 +77,34 @@ nav {
     justify-content: center;
     list-style: none; }
     nav ul li {
+      color: white;
+      min-height: 6vh;
       display: flex;
       align-items: center;
       box-sizing: border-box;
-      padding: 15px 5px 15px 10px;
+      text-align: center;
       width: 100%; }
       nav ul li:hover {
-        background-color: firebrick;
+        background-color: #506468;
         cursor: pointer; }
       nav ul li .emoji {
-        margin-right: 1vw;
-        font-size: inherit; }
+        font-size: 3vh; }
       nav ul li .fade {
         animation: fadeOut 600ms; }
-      nav ul li .hidd {
+      nav ul li .hidden {
+        display: none; }
+      nav ul li .listText {
         display: none; }
       nav ul li .visible {
         display: block;
         animation: fadeIn 600ms; }
-      nav ul li .listText {
-        display: none; }
 
 .board {
   margin-left: 5vw;
   box-sizing: border-box;
   display: flex;
   min-height: 90vh;
-  background-color: cadetblue; }
+  background-color: #93BFB6; }
   .board .formContainer {
     flex: 1;
     margin: 20px 0 0 20px; }
@@ -129,28 +132,27 @@ nav {
   display: flex;
   flex: 3;
   margin: 0 0 0 20px;
-  padding-right: 20px;
-  background-color: white; }
+  padding-right: 20px; }
   .board .taskSectionContainer .taskSection {
     flex: 1;
     padding: 20px;
-    margin: 10px 0 0 20px;
+    margin: 0 0 0 20px;
     box-sizing: border-box;
     height: inherit; }
     .board .taskSectionContainer .taskSection h1 {
       text-align: center; }
   .board .taskSectionContainer .draggedOver {
-    background-color: #dbdbff;
+    background-color: #D5E5E6;
     border-left: 1px dashed black;
     border-right: 1px dashed black; }
   .board .taskSectionContainer .normalState {
     border-left: 1px solid black;
     border-right: 1px solid black;
-    background-color: white; }
+    background-color: #ECF0F1; }
 
 .note {
   margin: 20px 0 20px 0;
-  background-color: yellow;
+  background-color: #95a5a6;
   min-height: 150px;
   align-items: center;
   text-align: center; }
@@ -161,4 +163,4 @@ nav {
   .note * {
     padding: 10px; }
   .note .noteBar {
-    background-color: red; }
+    background-color: #bdc3c7; }

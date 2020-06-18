@@ -7,7 +7,7 @@ header {
 		@include setFlexAndMinHeight(10);
 		box-sizing: border-box;
 		align-items: center;
-		background-color: #00587A;// #3B7E87;
+		background-color: $boardMenuColor;
 		color: $bodyColor;
 		h1{
 			padding-left: 1vw;
@@ -30,7 +30,7 @@ header {
 				margin-left: 0.5vw;
 				flex: 2;
 				@include setInputStyle(2, black);
-				@include validateInput(#EB6361, #97CE68);
+				@include validateInput($fireRed, $lightGreen);
 			}
 			button {
 				flex: 1;

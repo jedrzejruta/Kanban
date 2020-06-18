@@ -38,7 +38,7 @@ header {
         outline: none;
         border: 2px solid black; }
         header #boardMenu form input:not(:placeholder-shown) {
-          border-color: #EB6361; }
+          border-color: firebrick; }
         header #boardMenu form input:valid {
           border-color: #97CE68; }
       header #boardMenu form button {
@@ -78,8 +78,8 @@ nav {
     list-style: none; }
     nav ul li {
       color: white;
-      min-height: 6vh;
       display: flex;
+      min-height: 6vh;
       align-items: center;
       box-sizing: border-box;
       text-align: center;

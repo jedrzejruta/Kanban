@@ -33,7 +33,7 @@
 
 @mixin validateInput($incorrectInputColor, $correctInputColor) {
 	&:not(:placeholder-shown){
-		border-color: $incorrectInputColor; //change this
+		border-color: $incorrectInputColor;
 	}
 	&:valid {
 		border-color: $correctInputColor;

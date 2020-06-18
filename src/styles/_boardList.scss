@@ -35,12 +35,9 @@ nav {
 		list-style: none;
 		li {
 			color: white;
-			min-height: 6vh;
-			display: flex;
+			@include setFlexAndMinHeight(6);
 			align-items: center;
 			box-sizing: border-box;
-			// padding: 1%;
-			// padding: 15px 5px 15px 10px;
 			text-align: center;
 			width: 100%;
 			@include hovered(#506468, pointer);

@@ -18,12 +18,12 @@
 			}
 		}
 		.draggedOver {
-			background-color: #D5E5E6;
+			background-color: $sectionDragged;
 			@include setTaskSectionBorders(dashed);
 		}
 		.normalState {
 			@include setTaskSectionBorders(solid);
-			background-color: #ECF0F1;			;
+			background-color: $sectionDefault;
 		}
 	}
 }

@@ -5,9 +5,6 @@ export class Board  {
 	public boardID: string;
 
 	constructor(public boardName: string, boardID: string) {
-		// this.tasks.forEach(el => {
-		// 	new Task(el.taskName, el.taskDesc);
-		// });
 		this.boardID = boardID;
 		this.renderBoard(boardName);
 	}

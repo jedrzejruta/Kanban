@@ -1,12 +1,11 @@
 import { Board } from './board';
 
 export class Kanban {
-	private boards: Array<Board> = this.getFromLocalStorage(); // [];
+	private boards: Array<Board> = this.getFromLocalStorage();
 
 	// TODO:
 	// show first board from list on page load
 	// update tasks in board array
-	// tasks localstorage
 
 	constructor() {
 		this.setInputValidity();
@@ -31,22 +30,19 @@ export class Kanban {
 	}
 
 	private addNewBoard(): void {
-		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard'); // board not displaying when localstorage is empty
+		const newBoardButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#newBoard');
 
 		newBoardButton.addEventListener('click', () => {
 			const _boardName: string = (<HTMLInputElement>document.querySelector('#boardName')).value.trim();
 
 			if (_boardName.length !== 0) {
 				const boardID: string = Date.now().toString(),
-					board: Board = new Board(_boardName, boardID);
-					
-				if (this.boards.length !== 0) {
-					const boardsArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
+					board: Board = new Board(_boardName, boardID),
+					boardsArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
 				
-					boardsArray.forEach(el => {
-						this.toggleBoardClass(el, board.boardID);
-					});
-				}
+				boardsArray.forEach(el => {
+					this.toggleBoardClass(el, board.boardID);
+				});
 				this.boards.push(board);
 				this.addToLocalStorage();
 				this.renderBoardList(board);
@@ -94,7 +90,6 @@ export class Kanban {
 		const boardListElements: NodeListOf<HTMLLIElement> = document.querySelectorAll('#boardList>li'),
 			boardArray: NodeListOf<HTMLElement> = document.querySelectorAll('.board');
 
-		// boardArray.length !== 0 ? this.toggleBoardClass(boardArray[0],boardArray[0].id) : console.log('no boards');
 		boardListElements.forEach(el => {
 			el.addEventListener('click', () => {
 				const activeBoardID: string = el.className;
@@ -104,23 +99,4 @@ export class Kanban {
 			});
 		});
 	}
-
-	private handleNavHover(): void { // almost there
-		const navigation: HTMLElement = <HTMLElement>document.querySelector('nav'),
-			boardListElements: NodeListOf<HTMLParagraphElement> = navigation.querySelectorAll('li> .listText');
-		navigation.addEventListener('mouseover', () => {
-			boardListElements.forEach(el => {
-				el.classList.replace('hidden','visible');
-			});
-		});
-		navigation.addEventListener('mouseout', () => {
-			boardListElements.forEach(el => {
-				el.classList.replace('visible', 'fade');// change last elchild to propriate p el
-				setTimeout(() => {
-					el.classList.replace('fade','hidden');
-				}, 600);
-			});
-		});
-	}
-
 }

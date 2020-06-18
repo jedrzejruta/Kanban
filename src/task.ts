@@ -1,4 +1,8 @@
 export class Task {
+
+	// TODO: 
+	
+	// task should contain boardID info, and which section it is assigned, or update board with tasks array
 	public taskName: string;
 	public taskDesc: string;
 	constructor(taskName: string, taskDesc: string) {

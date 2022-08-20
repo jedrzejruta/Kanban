@@ -1,5 +1,5 @@
 # Kanban
-TypeScript Kanban project to easily manage ToDo tasks
+TypeScript Kanban project to easily manage ToDo tasks with WebSocket server-client communication implemented
 
 ## Application screenshots
 
